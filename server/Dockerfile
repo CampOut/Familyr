@@ -16,15 +16,15 @@ RUN npm run build
 
 FROM node:16.16 AS prod
 
-WORKDIR /app
+WORKDIR /server
 
-COPY --from=base /app/node_modules/ ./node_modules
-COPY --from=base /app/package.json ./package.json
-COPY --from=base /app/dist ./dist
-COPY --from=base /app/prisma ./prisma
-COPY --from=base /app/scripts ./scripts
-COPY --from=base /app/src ./src
-COPY --from=base /app/tsconfig* .
+COPY --from=base /server/node_modules/ ./node_modules
+COPY --from=base /server/package.json ./package.json
+COPY --from=base /server/dist ./dist
+COPY --from=base /server/prisma ./prisma
+COPY --from=base /server/scripts ./scripts
+COPY --from=base /server/src ./src
+COPY --from=base /server/tsconfig* .
 
 EXPOSE 3000
 
